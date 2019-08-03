@@ -1,24 +1,24 @@
 // C program for different tree traversals 
-#include <iostream> 
+#include <iostream>
+#include <string>
+
 using namespace std; 
   
 /* A binary tree node has data, pointer to left child and a pointer to right child */
-struct Node 
+struct BinaryNode 
 { 
     int data; 
-    struct Node* left, *right; 
-    Node(int data) 
+    struct BinaryNode* left, *right; 
+    BinaryNode(int data) 
     { 
         this->data = data; 
         left = right = NULL; 
     } 
-}; 
+};
 
 int treeArray[100]; // Achtung, Array hat fixe länge!
 
-
-
-void scrollThroughTree(struct Node* node, int counter) {
+void scrollThroughTree(struct BinaryNode* node, int counter) {
     if (node == NULL)
         return;
 
@@ -48,17 +48,16 @@ void printTree() {
     
 }
 
-
 /* Driver program to test above functions*/
 int main() 
 { 
-    struct Node *root = new Node(1);
-    root->left = new Node(2);
-    root->right = new Node(3);
-    root->left->left = new Node(4);
-    root->left->right = new Node(5);
-    root->right->left = new Node(6);
-    root->right->right = new Node(7);
+    struct BinaryNode *root = new BinaryNode(1);
+    root->left = new BinaryNode(2);
+    root->right = new BinaryNode(3);
+    root->left->left = new BinaryNode(4);
+    root->left->right = new BinaryNode(5);
+    root->right->left = new BinaryNode(6);
+    root->right->right = new BinaryNode(7);
 
     scrollThroughTree(root, 1);
     printTree();
