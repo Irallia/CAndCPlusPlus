@@ -67,18 +67,5 @@ int main() {
     cout << getDayOfWeek(5) << endl;
     cout << getDayOfWeek(65) << endl;
 
-    int index = 2;
-    while(index <=4){
-        cout << index << endl;
-        index++;
-    }
-    
-    index = 6;
-    do{
-        cout << index << endl;
-        index++;
-    }while(index <=5);
-
-
     return 0;
 }
