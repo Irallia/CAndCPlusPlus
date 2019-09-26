@@ -42,6 +42,7 @@ int main() {
     int cols = sizeof(numberGrid)[0]/sizeof(numberGrid[0][0]);
     cout << rows << "x" << cols << endl;
 
+    // nested for loop:
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < cols; j++)
