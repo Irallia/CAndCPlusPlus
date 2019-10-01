@@ -19,5 +19,6 @@ int main() {
 
     /* printf */
     printf("Hello!\n\"Format specifyers:\"\n %d, %f, %f, %c and %s", age, gpa, num, grade, phrase);
+
     return 0;
 }

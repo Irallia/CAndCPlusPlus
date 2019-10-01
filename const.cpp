@@ -42,6 +42,7 @@ int main()
     a = 2;                  // modify the variable
     const int MAX_AGE = 90; // declare a constant instead of a variable variable
     // MAX_AGE = 95;        // then you're not allowed to do this
+    printf("Hallo");        // The string is automaticaly a const char[], because its not a variable.
 
     int* b = new int;
     *b = 3;                 // dereference b to a value
