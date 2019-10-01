@@ -36,7 +36,7 @@ void printEntity(const Entity& e) {     // const reference (&), because you don'
 
 int main()
 {
-    Entity e;
+    Entity e(4);
 
     int a = 1;
     a = 2;                  // modify the variable

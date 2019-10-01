@@ -32,7 +32,7 @@ int main() {
 void uselessFunction(){}
 
 // But this works:
-double cube(double num){
+double cube(double num) {
     double result = num * num * num;
     return result;
     // Any code after a return keyword will not be output because the function has already been exited.

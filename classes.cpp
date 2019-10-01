@@ -78,5 +78,17 @@ int main()
         }
     };
 
+    cout << " ------------------ " << endl;
+
+    // With C++11 you can use a range-based for loop:
+    for (auto& book_i : books) {
+        if (book_i.isLongBook()) {
+            cout << book_i.title << " is " << book_i.pages << " long." << endl;
+        } else {
+            cout << book_i.title << " is " << book_i.pages << " short." << endl;
+        }
+    }
+    // Here auto automatically deduces the correct type. You could have written Book const& book_i instead.
+
     return 0;
 }
