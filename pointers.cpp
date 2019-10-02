@@ -19,7 +19,7 @@ int main() {
     * In C++ we call these addresses pointers.
     */
     int age = 19;
-    double gpa =2.7;
+    double gpa = 2.7;
     string name = "Mike";
 
     // We can print out this address/pointer, when we use the ampersand (&):

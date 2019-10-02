@@ -14,10 +14,9 @@ int main() {
 
     int luckyNums[20] = {4, 8, 15, 16, 23, 42};
     luckyNums[10] = 100;
-    cout << luckyNums[10];
-    cout << luckyNums[11];
+    cout << luckyNums[10] << endl;
+    cout << luckyNums[11] << endl;
 
-    cout << endl;
     string name = "Ira";
     int age = 77;
     sayHi(name, age);
