@@ -10,7 +10,7 @@ int main() {
     cout << "Enter your age: ";
     // cin >> age;
     getline(cin, age);
-    cout << "You are " << age << " years old." << endl;
+    cout << "You are " << age << " years old.\n";
 
     /*
         Assuming you typed: 5<enter>John<enter>. Then cin >> age reads JUST 5. leaving the new-line (enter) character on the stream.
@@ -19,17 +19,19 @@ int main() {
         If you want to switch between >> and getline() you need to be carefull about trailing end of lines on your input. – Martin York Apr 21 '11 at 8:41
         https://stackoverflow.com/questions/5739937/using-getlinecin-s-after-cin
     */
-    cout << "(press enter)" << endl;
+    cout << "(press enter)\n";
     cin.ignore(256, '\n'); // remaining input characters up to the next newline character are ignored
 
     string name;
     cout << "Enter your name: ";
     getline(cin, name);
-    cout << "Hello, your name has " << name.length() << " characters and ist starting with " << name[0] << "!" << endl;
+    cout << "Hello, your name has " << name.length() << " characters and ist starting with " << name[0] << "!\n";
     int addressOfMyName = name.find("Lydia", 0);
     if (addressOfMyName > -1) {
         cout << "You have my name "  << name.substr(addressOfMyName, 2)<< "!";
     };
 
-    return 0;
+    /* error messages: */
+    cerr << "error message has to go in here!"
+
 }

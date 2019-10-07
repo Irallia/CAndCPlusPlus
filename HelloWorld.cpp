@@ -1,6 +1,9 @@
 #include <iostream>
 #include <iomanip>
 
+using namespace std;    // std: standard library
+
+/* Every function needs to return at least 0. The main function is the only function which returns 0 automaticaly. */
 int main()
 {
    /*
@@ -11,11 +14,11 @@ int main()
    */
 
    int id = 2;
-   std::string errors[4] = {"bla", "test", "echo", "hallo"};
+   string errors[4] = {"bla", "test", "echo", "hallo"};
 
-   std::cout << "Hallo Welt!\n";
-   std::cout << "Error " << id << ": " << errors[id] << "." << std::endl;
-   std::cout << "0x" << std::hex << std::setfill('0') << std::setw(4) << 0x424 << std::endl;
+   cout << "Hallo Welt!\n";   // std::endl is less efficient than '\n'.
+   cout << "Error " << id << ": " << errors[id] << ".\n";
+   cout << "0x" << hex << setfill('0') << setw(4) << 0x424 << "\n";
 
    /*
    * + std::cout is extensible. (However, people rarely would want to extend ostream.)

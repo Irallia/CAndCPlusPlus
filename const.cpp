@@ -84,4 +84,17 @@ int main()
     std::cout << *d << std::endl;
     /* -> You can't change the memory address and you can't change the data. */
 
+    /* const and constexpr: */
+    size_t i = 5;
+    size_t const j = 3;
+    size_t constexpr k = 4;
+
+    size_t const l = j + 4;         // may be computed at run-time
+    size_t const m = i + 4;         // computed at run-time
+
+    size_t constexpr n = k + 4;     // computed at compile time
+    // size_t constexpr o = i + 4;  // not possible, because i is not constexpr
+
+    size_t const p = foobar();      // works if foobar() returns size_t
+    size_t constexpr q = foobar();  // only works if foobar() is constexpr
 }
