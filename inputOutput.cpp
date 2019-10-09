@@ -32,6 +32,6 @@ int main() {
     };
 
     /* error messages: */
-    cerr << "error message has to go in here!"
+    cerr << "error message has to go in here!";
 
 }

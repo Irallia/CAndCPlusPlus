@@ -10,7 +10,7 @@ class Entity {
         mutable int var;    // debugging variable which is needed to be changed.
     public:
         // Constructor:
-        Entity(int x) {}
+        Entity() {}
         // Get-er and Set-er:
         int getX() const {  // write const after a method name (only works in a class)
             // m_X = 2;     // You promise that you not modify variables of the class.
@@ -23,9 +23,11 @@ class Entity {
         void setX(int x) {  // -> You use const for get-er but not for set-er functions.
             m_X = x;
         }
-        const int* const getY() const { // You're returning a pointer that can not be modified,
-            return m_Y;                 // the contents of the pointer can not be modified
-        }                               // and this function promises not to modify the actual Entity class.
+        // type qualifiers ignored on function return type (zurückgegebene const variablen werden ignoriert, da eh neue
+        //    objecte geschaffen werden):
+        // const int* const getY() const { // You're returning a pointer that can not be modified,
+        //     return m_Y;                 // the contents of the pointer can not be modified
+        // }                               // and this function promises not to modify the actual Entity class.
 };
 
 void printEntity(const Entity& e) {     // const reference (&), because you don't want to copy my object.
@@ -34,9 +36,14 @@ void printEntity(const Entity& e) {     // const reference (&), because you don'
                                         // because the function does not guarantee that it don't touch the object.
 }
 
+size_t constexpr foobar() {
+    size_t st = 1;
+    return st;
+}
+
 int main()
 {
-    Entity e(4);
+    Entity e();
 
     int a = 1;
     a = 2;                  // modify the variable
@@ -57,31 +64,30 @@ int main()
     /*
     * Add const in the front of a pointer means ...
     */
-    const int* c = new int; // same as
-    int const* c = new int; // ... you can't change the contents of that pointer.
-    // *c = 4;              // But reading and dereferenceing ect is still okay:
-    c = (int*)&MAX_AGE;
+    const int* c = new int; // same as 'int const* c = new int;'
+    // *c = 4;              // ... you can't change the contents of that pointer.
+    c = (int*)&MAX_AGE;     // But reading and dereferenceing ect is still okay.
     std::cout << *c << std::endl;
     /* -> You can't change the data at the memory address but you can change the pointer. */
 
     /*
     * Add const after the pointer means ...
     */
-    int* const d = new int; // ... you can change the contents of that pointer, but
-    *d = 5;                 // ... you cant reassign the pointer:
+    int* const d1 = new int; // ... you can change the contents of that pointer, but
+    *d1 = 5;                 // ... you cant reassign the pointer:
     // d = (int*)&MAX_AGE;  //or
     // d = nullptr;
-    std::cout << *d << std::endl;
+    std::cout << *d1 << std::endl;
     /* -> You can't change the memory address but you can change the data. */
 
     /*
     * Add const in front and after the pointer means ...
     */
-    const int* const d = new int;   // ... you can't change the contents of that pointer, and
-    // *d = 5;                      // ... you cant reassign the pointer:
-    // d = (int*)&MAX_AGE;          //or
-    // d = nullptr;
-    std::cout << *d << std::endl;
+    const int* const d2 = new int;   // ... you can't change the contents of that pointer, and
+    // *d2 = 5;                      // ... you cant reassign the pointer:
+    // d2 = (int*)&MAX_AGE;          //or
+    // d2 = nullptr;
+    std::cout << *d2 << std::endl;
     /* -> You can't change the memory address and you can't change the data. */
 
     /* const and constexpr: */
@@ -97,4 +103,6 @@ int main()
 
     size_t const p = foobar();      // works if foobar() returns size_t
     size_t constexpr q = foobar();  // only works if foobar() is constexpr
+
+    std::cout << l << ", " << m << ", " << n << ", " << p << ", " << q;
 }

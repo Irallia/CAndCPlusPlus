@@ -1,6 +1,36 @@
 #include <iostream>
 using namespace std;
 
+struct Complex
+{
+    // private:                     // if you introduce your variables as private, you can't
+        double re;                  // double re{}, would initialize re as 0.
+        double im;
+    public:
+        void add(Complex const & c) // void operator += (Complex const & c)
+        {                           // Complex & operator += (Complex const & c) const
+            re += c.re;
+            im += c.im;
+                                    // return *this;
+        }
+        Complex operator+(Complex const & c) const  // const-qualification, the function is not changing the parameters.
+        {
+            Complex tmp{re, im};
+            tmp += c;
+            return tmp;             // Will return a new complex number.
+            // short: return (c += *this);
+        }
+}; // ; is important!
+
+// Class templates:
+template <typename T>
+struct Complex
+{
+    T re{};
+    T im{};
+}
+
+
 // Represent data by creat my own datatype, with the help of a class. (-> map a blueprint for your datatype)
 class Book {
     // only code thats inside the class Book can access whats in private:
@@ -53,6 +83,18 @@ class Book {
 
 int main()
 {
+    Complex c{1, 4};
+    std::cout << "real:" << c.re << " imaginary:" << c.im << '\n';
+    Complex c2;     // undefined
+    Complex c3{};   // like {0, 0}
+    c2.re = 1;
+    c2.im = 5;
+    c.add(c2);      // c.operator+=(c2);
+    c.add(c3);      // c += c2 += c3 (with the return statement, !computes right to left -> c += (c2 += c3))
+
+    Complex<double> c4{3.3, 4.3};
+    Complex<int32_t> c5{3, 4};      // same as std::<vector>
+
     // Now we create a book: (create an instance of our class, its an object specified by our class)
     Book book1("Harry Potter", "JK Rowling", 400, "PG-13");
     book1.pages = 500;

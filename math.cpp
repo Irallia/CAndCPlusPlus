@@ -23,5 +23,6 @@ int main() {
 
     int j = 7;
     bool d = (i = j);   // i will be assigned to j, because j is >0, d will be assigned to true.
+    cout << d;
 
 }

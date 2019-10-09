@@ -1,8 +1,47 @@
 #include <iostream>
-// #include <string>
 
-// #include <cstdio>
-// #include <cinttypes>
+/*
+ * What happens when you return something of const type from a function? Can constants be initialised from functions
+ * that return a non-const type?
+ * What happens when you return a reference?
+ * What combinations of const, const &, & (and none) are there for variables and for function return values? Which
+ * combinations are valid/invalid for initialising the variable?
+ *
+ * int a            = (1), (2), (3), (4)
+ * int & a          = (2)
+ * int const a      = (1), (2), (3), (4)
+ * int const & a    = (2), (4)
+ *
+ * (1) int f()
+ * (2) int & f()
+ * (3) int const f()
+ * (4) int const & f()
+ *
+ * */
+
+// bool just_value() {
+//     return true;
+// }
+
+// bool const just_value() {
+//     return true;
+// }
+
+// bool just_value() {
+//     bool
+// }
+
+// bool just_value() {
+
+// }
+
+// // value const =
+// {
+//     [[maybe_unused]]
+//     bool const
+// }
+
+
 
 //ToDo: std::uint8_t foobar() {
 int foobar() {
@@ -40,13 +79,7 @@ int main() {
     std::cout << c << '\n';
     // c = 2;
 
-/*
-What happens when you return a reference? What about the example
-on slide 20?
-What combinations of const, const &, & (and none) are there for variables
-and for function return values? Which combinations are valid/invalid
-for initialising the variable?
-*/
+
     double de = square(3.4);
     std::cout << de << '\n';
 

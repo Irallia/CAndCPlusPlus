@@ -2,20 +2,17 @@
 
 template <typename T>
 T fibonacci(T n1, T n2, int counter) {
-    T newNumber = n2;
-    while (counter - 2 > 0) {
-        newNumber = n1 + n2;
-        n1 = n2;
-        n2 = newNumber;
-        counter--;
-    }
-    return newNumber;
+    if (counter == 0)
+        return n1;
+    else
+        return fibonacci(n2, n1 + n2, counter - 1);
 }
 
 int main() {
     std::cout << "Please enter two floating point numbers.\n";
 
-    float f1;
+    // ToDo: Wo ist der Unterschied???
+    float f1{};
     float f2;
 
     std::cin >> f1 >> f2;

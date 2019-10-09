@@ -36,7 +36,7 @@ string getDayOfWeek(int dayNum){
         break;
     case 5:
     {
-        char day = 'Saturday';  // If you introduce variables, you need braces.
+        string day = "Saturday";  // If you introduce variables, you need braces.
         dayName = day;
         break;
     }
@@ -71,7 +71,12 @@ int main() {
     cout << getDayOfWeek(5) << endl;
     cout << getDayOfWeek(65) << endl;
 
-    if constexpr ( i-7 =....)
+    int const i = 6;
+    // decision at compile-time
+    if constexpr (i - 7 > 3)
+    {
+        // ...
+    }
 
     return 0;
 }
