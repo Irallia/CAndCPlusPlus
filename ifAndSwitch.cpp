@@ -16,7 +16,7 @@ int getMax(int num1, int num2){
 
 string getDayOfWeek(int dayNum){
     string dayName;
-    
+
     switch (dayNum)
     {
     case 0:
@@ -35,8 +35,12 @@ string getDayOfWeek(int dayNum){
         dayName = "Friday";
         break;
     case 5:
-        dayName = "Saturday";
+    {
+        char day = 'Saturday';  // If you introduce variables, you need braces.
+        dayName = day;
         break;
+    }
+
     case 6:
         dayName = "Sunday";
         break;
@@ -61,11 +65,13 @@ int main() {
         cout << "You are not correct!";
     };
     cout << endl;
-    
+
     cout << getMax(5,6) << endl;
 
     cout << getDayOfWeek(5) << endl;
     cout << getDayOfWeek(65) << endl;
+
+    if constexpr ( i-7 =....)
 
     return 0;
 }
