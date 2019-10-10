@@ -1,42 +1,8 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include <algorithm>
 
-enum class Gender
-{
-    FEMALE, MALE, DIVERSE
-};
-
-std::string giveString(Gender const g)
-{
-    switch (g)
-    {
-    case Gender::MALE:
-        return "male";
-    case Gender::FEMALE:
-        return "female";
-    case Gender::DIVERSE:
-        return "diverse";
-    }
-    return "";
-}
-
-Gender getGenderFromString(std::string const sGender)
-{
-    if (sGender == "male")
-    {
-        return Gender::MALE;
-    }
-    else if (sGender == "female")
-    {
-        return Gender::FEMALE;
-    }
-    else
-    {
-        return Gender::DIVERSE;
-    }
-}
+#include "gender.hpp"
 
 struct Person
 {
@@ -46,15 +12,14 @@ struct Person
 
     void print()
     {
-        std::cout << "Name " << this->name << ", age: " << this->age << ", gender: " << giveString(this->gender) << ".\n";
+        std::cout << "Name " << name << ", age: " << age << ", gender: " << gender2string(gender) << ".\n";
     }
 
-    bool operator<(Person a) const
+    bool operator<(Person other) const
     {
-        return this->age < a.age;
+        return std::tie(age, name) < std::tie(other.age, name); // use tuple to compare first by age, than by name.
     }
 };
-
 
 int main() {
 
@@ -69,7 +34,7 @@ int main() {
     while(yn != 'n') {
         std::cout << "Please enter your NAME (one word), AGE and GENDER [female, male, diverse].\n";
         std::cin >> name >> age >> gender;
-        persons.push_back(Person{name, age, getGenderFromString(gender)});
+        persons.push_back(Person{name, age, string2gender(gender)});
 
         std::cout << "Enter another person?[y/n]}\n";
         std::cin >> yn;

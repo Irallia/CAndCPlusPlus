@@ -9,64 +9,64 @@ struct Complex
 
     void print()
     {
-        std::cout << "(" << this->re << ", " << this->im << ")\n";
+        std::cout << "(" <<  re << ", " <<  im << ")\n";
     }
 
-    void operator += (Complex const & c)
+    void operator += (Complex const & other)
     {
-        re += c.re;
-        im += c.im;
+        re += other.re;
+        im += other.im;
     }
-    void operator -= (Complex const & c)
+    void operator -= (Complex const & other)
     {
-        re -= c.re;
-        im -= c.im;
+        re -= other.re;
+        im -= other.im;
     }
-    void operator *= (Complex const & c)
+    void operator *= (Complex const & other)
     {
-        re *= c.re;
-        im *= c.im;
+        re *= other.re;
+        im *= other.im;
     }
-    void operator /= (Complex const & c)
+    void operator /= (Complex const & other)
     {
-        re /= c.re;
-        im /= c.im;
+        re /= other.re;
+        im /= other.im;
     }
 
-    Complex operator + (Complex const & c) const
+    Complex operator + (Complex const & other) const
     {
         // return (c += *this)
         Complex tmp = *this;
-        tmp += c;
+        tmp += other;
         return tmp;
     }
-    Complex operator - (Complex const & c) const
+    Complex operator - (Complex const & other) const
     {
         Complex tmp = *this;
-        tmp -= c;
+        tmp -= other;
         return tmp;
     }
-    Complex operator * (Complex const & c) const
+    Complex operator * (Complex const & other) const
     {
         Complex tmp = *this;
-        tmp *= c;
+        tmp *= other;
         return tmp;
     }
-    Complex operator / (Complex const & c) const
+    Complex operator / (Complex const & other) const
     {
         Complex tmp = *this;
-        tmp /= c;
+        tmp /= other;
         return tmp;
     }
 
-    bool operator == (Complex const & c) const
+    bool operator == (Complex const & other) const
     {
-        return (re == c.re) && (im == c.im);
+        return (re == other.re) && (im == other.im);
     }
 
-    bool operator != (Complex const & c) const
+    bool operator != (Complex const & other) const
     {
-        return !(*this == c);
+        return !(*this == other);
     }
 
 };
