@@ -18,7 +18,7 @@ int main()
 
    cout << "Hallo Welt!\n";   // std::endl is less efficient than '\n'.
    cout << "Error " << id << ": " << errors[id] << ".\n";
-   cout << "0x" << hex << setfill('0') << setw(4) << 0x424 << "\n";
+   cout << "0x" << hex << setfill('0') << setw(4) << 0x424 << '\n';
 
    /*
    * + std::cout is extensible. (However, people rarely would want to extend ostream.)

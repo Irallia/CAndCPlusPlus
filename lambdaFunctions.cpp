@@ -16,7 +16,6 @@ void squareroot_all_elements(std::vector<TElem> & vec)
     elem = std::sqrt(elem);
 }
 
-
 template <typename TElem, typename TLambda>
 void on_all_elements(std::vector<TElem> & vec, TLambda const & l)
 {
