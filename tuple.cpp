@@ -1,7 +1,6 @@
 #include <iostream>
-// #include <cmath>
-// #include <array>
 #include <vector>
+#include <tuple>
 
 int main() {
     /* type deduction: */

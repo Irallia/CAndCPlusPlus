@@ -41,9 +41,9 @@ int main() {
     // use std arrays instead of build in arrays ->
 
     /* std::array */                        // size fixed at compile-time;
-    std::array<double, 2> arr{3.1, 2.3};     // specified via second template argument.
-    std::cout << arr[0]; // prints 3.1       // provides RandomAccessIterator
-    arr[1] = 32.0;       // assigns value    // Use instead of built-in array in all serious projects,
+    std::array<double, 2> arr{3.1, 2.3};    // specified via second template argument.
+    std::cout << arr[0]; // prints 3.1      // provides RandomAccessIterator
+    arr[1] = 32.0;       // assigns value   // Use instead of built-in array in all serious projects,
     std::cout << arr.size() << ' ';         //      i.e. it has no drawbacks over built-in arrays.
     std::cout << arr.end() << '\n';
 
@@ -65,28 +65,28 @@ int main() {
     std::basic_string<char> str{"ABC"};     // Like std::vector<char>, only supports character types.
     //== std::string                        // Slightly slower access.
     std::cout << str[0]; // prints 'A'      // Optimizations for small strings.
-    str[1] = 32.0; // assigns value          // Convenience functions for input/output.
+    str[1] = 32.0; // assigns value         // Convenience functions for input/output.
 
     /* std string: */
     std::string s;                          // similar to vector<char> (but a string you can print in a whole)
     std::cout << s << '\n';
 
     /* std::deque */
-    std::deque<double> deq{3.1, 2.3};        // Like vector, but:
-    std::cout << deq[0]; // prints 3.1       // supports prepend in O(1)
-    deq[1] = 32.0;       // assigns value    // faster resizes
-    deq.push_back(2.2);  // append value     // high size overhead
-    deq.push_front(1.1); // prepend value    // slightly slower access
+    std::deque<double> deq{3.1, 2.3};       // Like vector, but:
+    std::cout << deq[0]; // prints 3.1      // supports prepend in O(1)
+    deq[1] = 32.0;       // assigns value   // faster resizes
+    deq.push_back(2.2);  // append value    // high size overhead
+    deq.push_front(1.1); // prepend value   // slightly slower access
 
     /* std::list */                         // A doubly-linked list.
     std::list<double> li{3.1, 2.3};         // Fast inserts/deletes anywhere.
     std::cout << *li.begin(); // prints 3.1 // no random access! []
-    li.insert(it, 2.2);     // insert value // 128bit size overhead per element
+    // li.insert(it, 2.2);  // insert value // 128bit size overhead per element
     li.push_back(2.2);      // append value // provides BidirectionalIterator
 
     /* std::forward_list */                 // A singly-linked list.
     std::forward_list<size_t> fwLi{3, 2};   // Fast inserts/deletes anywhere.
     std::cout << *fwLi.begin(); // prints 3 // no random access, no .size()!
-    fwLi.insert_after(it, 4); // append     // 64bit size overhead per element
+    // fwLi.insert_after(it, 4); // append  // 64bit size overhead per element
                                             // provides ForwardIterator
 }
