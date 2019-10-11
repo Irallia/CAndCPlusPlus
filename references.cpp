@@ -1,6 +1,17 @@
 #include <iostream>
 #include <vector>
 
+/* Recommendations
+ * 1. By default make all function parameters const &
+ * 2. Ask yourself: do I want to change it?
+ * 1. no
+ * 1. arithmetic type? → just const
+ * 2. else → keep const &
+ * 2. yes
+ * 1. so that change is visible outside? → just &
+ * 2. change only inside function? → neither const nor & (copy)
+ * */
+
 int main() {
 
     size_t i = 145;

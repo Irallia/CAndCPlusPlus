@@ -5,6 +5,9 @@
 
 #include "gender.hpp"
 
+// Mit dem folgenden Ausdruck, kann man 'Person' verwenden, als sei es ein struct.
+// using Person = std::tuple<std::string, uint16_t, Gender>;
+
 void printPerson(std::tuple<std::string, uint16_t, Gender> person) {
     auto & [n, a, g] = person;
     std::cout << "Name " << n << ", age: " << a << ", gender: " << gender2string(g) << ".\n";
@@ -24,8 +27,9 @@ int main()
         std::cout << "Please enter your NAME (one word), AGE and GENDER [female, male, diverse].\n";
         std::cin >> name >> age >> gender;
 
-        std::tuple<std::string, uint16_t, Gender> person{name, age, string2gender(gender)};
-        persons.push_back(person);
+        // std::tuple<std::string, uint16_t, Gender> person{name, age, string2gender(gender)};
+        // persons.push_back(person);
+        persons.push_back(make_tuple(name, age, string2gender(gender)));
 
         std::cout << "Enter another person?[y/n]}\n";
         std::cin >> yn;

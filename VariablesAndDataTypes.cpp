@@ -22,7 +22,7 @@ int main()
    string phrase = "Bla blubb";
    [[maybe_unused]] int age = 50;
    [[maybe_unused]] double gpa = 2.3;
-   [[maybe_unused]] bool isCorrect = true;
+   [[maybe_unused]] bool isCorrect = true;  // the smallest unit of memory is 1 byte = 8 bit -> bool uses at least 8 bit.
    [[maybe_unused]] unsigned integral = 5;  // integral >= 0 (es gibt auch unsigned char, short, long, long long)
 
    /* data type auto */
@@ -38,6 +38,7 @@ int main()
 
    /* size */
    [[maybe_unused]] int s = sizeof(int);   // the size of data types depends on the compiler and the operating system
+
    /* OS and machine independent fixed-width integers from <cstdint> */
    [[maybe_unused]] int8_t a;      // and uint8_t for unsigned integers
    [[maybe_unused]] int16_t b;     // ...
@@ -46,6 +47,10 @@ int main()
    /* OS independent, but machine dependent "large types"  from <cstddef> */
    [[maybe_unused]] ptrdiff_t f;   // == int32_t or int64_t
    [[maybe_unused]] size_t g;      // == uint32_t || uint64_t
-   // avoid int, long, unsigned int, ... in case you know the size
-   // the smallest unit of memory is 1 byte = 8 bit -> bool uses at least 8 bit.
+   /* make integrals unsigned if possible!
+    * unsigned integral and no other information? → size_t
+    * floating point and no other information? → double
+    * integral and known range? → fixed-width int*_t / uint*_t
+    * avoid int, long, unsigned int, unsigned long
+    */
 }
