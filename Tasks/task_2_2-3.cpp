@@ -1,6 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <algorithm>    // for std::sort
+#include <iostream>     // for std::cout, std::cin
+#include <tuple>        // for std::tie
+#include <vector>       // for std::vector
 
 #include "gender.hpp"
 

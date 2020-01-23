@@ -3,7 +3,7 @@ using namespace std;
 
 char c = 'C';              // global scope
 
-foobar() {
+int foobar() {
    return 0;
 }
 

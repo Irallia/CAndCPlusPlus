@@ -63,8 +63,6 @@ void print(std::string const & str) {
     std::cout << str << '\n';
 }
 
-
-
 int main() {
 
     std::cout << "uint8_t is of type: \t" << typeid(uint8_t).name() << " with the size of \t" << sizeof(uint8_t)*8
@@ -79,8 +77,7 @@ int main() {
     std::cout << c << '\n';
     // c = 2;
 
-
-    double de = square(3.4);
+    const double* de = square(3.4);
     std::cout << de << '\n';
 
     std::string s{"test"};

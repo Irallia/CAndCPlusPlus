@@ -16,7 +16,7 @@ struct Complex
         Complex operator+(Complex const & c) const  // const-qualification, the function is not changing the parameters.
         {
             Complex tmp{re, im};
-            tmp += c;
+            tmp = tmp + c;
             return tmp;             // Will return a new complex number.
             // short: return (c += *this);
         }
@@ -24,11 +24,11 @@ struct Complex
 
 // Class templates:
 template <typename T>
-struct Complex
+struct ComplexTemplate
 {
     T re{};
     T im{};
-}
+};
 
 
 // Represent data by creat my own datatype, with the help of a class. (-> map a blueprint for your datatype)
@@ -92,8 +92,8 @@ int main()
     c.add(c2);      // c.operator+=(c2);
     c.add(c3);      // c += c2 += c3 (with the return statement, !computes right to left -> c += (c2 += c3))
 
-    Complex<double> c4{3.3, 4.3};
-    Complex<int32_t> c5{3, 4};      // same as std::<vector>
+    ComplexTemplate<double> c4{3.3, 4.3};
+    ComplexTemplate<int32_t> c5{3, 4};      // same as std::<vector>
 
     // Now we create a book: (create an instance of our class, its an object specified by our class)
     Book book1("Harry Potter", "JK Rowling", 400, "PG-13");

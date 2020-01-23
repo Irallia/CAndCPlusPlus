@@ -1,8 +1,9 @@
-#include <iostream>
-#include <typeinfo>
-#include <limits>
+#include <climits>  // for CHAR_MIN, CHAR_MAX, SHRT_MIN, SHRT_MAX, INT_MIN, INT_MAX, LONG_MIN, LONG_MAX, ...
+#include <iostream> // for std::cout
+#include <limits>   // for std::numeric_limits
 
-void print_stat(t) {
+template <typename t>
+void print_stat() {
     // https://en.cppreference.com/w/cpp/types/numeric_limits/lowest
     std::cout << "size: " << sizeof(t) * 8
             << " max: " << std::numeric_limits<t>::max()
@@ -12,8 +13,9 @@ void print_stat(t) {
 
 int main()
 {
-    print_stat(char);
-    /**/
+    // print_stat(char);
+    print_stat<char>();
+
     std::cout << "char is of type: " << typeid(char).name() << " with the size of \t\t" << sizeof(char)*8
         << " bits,\t\t and values go from " << CHAR_MIN << " to " << CHAR_MAX << "\n";
     std::cout << "short is of type: " << typeid(short).name() << " with the size of \t\t" << sizeof(short)*8
