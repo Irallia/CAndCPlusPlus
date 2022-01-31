@@ -54,7 +54,7 @@ int foobar2() {
     return a;
 }
 
-const double* square(double const d) {
+constexpr double* square(double const d) {
     double const prod = d * d;
     return & prod;
 }

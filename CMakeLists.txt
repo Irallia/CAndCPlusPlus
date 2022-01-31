@@ -21,6 +21,7 @@ add_executable (LambdaFunctions lambdaFunctions.cpp)
 add_executable (References references.cpp)
 add_executable (Enumerations enumerations.cpp)
 add_executable (Tuple tuple.cpp)
+add_executable (Random random.cpp)
 
 # Multiple Files
 add_executable (CppFile multipleFiles/cppFile.cpp)

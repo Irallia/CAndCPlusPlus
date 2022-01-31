@@ -1,0 +1,13 @@
+constexpr(!?expr)   - findet constexpr aber nicht const
+^const              - Anfang        - findet const nur wenn es am Anfang steht
+const$              - Ende          - findet const nur wenn es am Ende steht
+hal*o               - Wiederholung  - findet hao, halo, hallo, halllo, ...
+hal+o               - Wiederholung  - findet halo, hallo, halllo, ...
+AAT?GGG             - Vorhanden?    - findet AAGGG und AATGGG
+.const              - kein Anfang   - findet const wenn es nicht am Anfang steht
+const(=?ructor|expr)- mit           - findet constexpr und constructor
+const[^ra ]         - ohne          - findet constexpr aber nicht const, constructor, constant
+
+const.+\(                           - findet const mit beliebiger Zeichenfolge gefolgt von "("
+const[^/\W/]                        - findet nur const mit alphanumerischer endung, wie constant, aber nicht const;
+const[/\w/]                         - findet nur const mit alphanumerischer endung einschließlich Unterstrich, wie const_iterator
